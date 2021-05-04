@@ -1,0 +1,14 @@
+table{
+    height: 50vh;
+    width: 50vh;
+}
+#gameBoardContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+td{
+    border: 1px black solid;
+    background-color: rgba(0, 0, 0, 5%)
+}

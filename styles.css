@@ -2,56 +2,73 @@
     box-sizing: border-box;
   }
   
-  :root {
-    --cell-size: 100px;
-    --mark-size: calc(var(--cell-size) * .9);
-  }
+  :root{
+    --cell-size: 140px;
+    --mark-size: calc(var(--cell-size) * ( .7));
+    --pink: #ffacc8;
+    --purple: #9f69ff;
+    --blue: #16d1ff;
+    --yellow: #f5ff78;
+    --green: #8edda3;
+}
   
-  body {
+body{
+    font-family: 'Titan One', cursive;
+    background-image: url(images/tacobell.png);
+    background-repeat: repeat;
+    background-size: 600px;
     margin: 0;
-  }
-  
-  .board {
-    width: 100vw;
-    height: 100vh;
+}
+
+#header{
+    text-align: center;
+    text-shadow: 5px 5px var(--pink), 0 0 25px var(--pink), 0 0 5px #e086a4;
+ }
+
+ .board{
+    margin-top: 50px;
     display: grid;
     justify-content: center;
     align-content: center;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(3, auto)
-  }
+    grid-template-columns: repeat(3, auto);
+}
+
   
-  .cell {
+.cell{
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid black;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     cursor: pointer;
-  }
+    
+}
   
-  .cell:first-child,
-  .cell:nth-child(2),
-  .cell:nth-child(3) {
-    border-top: none;
-  }
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: 3px solid var(--pink); 
+    
+}
   
-  .cell:nth-child(3n + 1) {
-    border-left: none;
-  }
+.cell:nth-child(3n + 1){
+    border-left: 3px solid var(--pink);
+}
+.cell:nth-child(3n + 3){
+    border-right: 3px solid var(--pink);
+}
   
-  .cell:nth-child(3n + 3) {
-    border-right: none;
-  }
-  
-  .cell:last-child,
-  .cell:nth-child(8),
-  .cell:nth-child(7) {
-    border-bottom: none;
-  }
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7){
+    border-bottom: 3px solid var(--pink);
+}
+
   
   .cell.x,
   .cell.circle {
@@ -59,15 +76,18 @@
   }
   
   .cell.x::before,
-  .cell.x::after,
-  .cell.circle::before {
-    background-color: black;
+  .cell.x::after{
+      background-color: var(--blue);
   }
+
+  .cell.circle::before{
+    background-color: var(--purple);
+}
   
   .board.x .cell:not(.x):not(.circle):hover::before,
   .board.x .cell:not(.x):not(.circle):hover::after,
-  .board.circle .cell:not(.x):not(.circle):hover::before {
-    background-color: lightgrey;
+  .board.circle .cell:not(.x):not(.circle):hover::before{
+      background-color: var(--yellow);
   }
   
   .cell.x::before,
@@ -129,16 +149,20 @@
   
   .winning-message button {
     font-size: 3rem;
-    background-color: white;
-    border: 1px solid black;
-    padding: .25em .5em;
+    background-color: var(--pink);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-family: 'Titan One', cursive;
+    padding: 15px;
     cursor: pointer;
+    margin-top: 25px;
   }
   
   .winning-message button:hover {
-    background-color: black;
-    color: white;
-    border-color: white;
+    background-color: white;
+    color: var(--pink);
+    border-color: var(--pink);
   }
   
   .winning-message.show {
